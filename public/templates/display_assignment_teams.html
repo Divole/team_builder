@@ -1,0 +1,98 @@
+
+<!-- { 
+	"my_team":{
+		"assignment_id": "KEA_00001",
+			"course_id":  "KEA_001a" ,
+			"description": "Facebook 2",
+			"id": "KEA_00001_02a",
+			"lead_id": "lala",
+			"members": ["mam","doma"],
+			"members_num": 4,
+			"project_name": "Social Network",
+			"requirements": Array["Java", "MongoDB"]	
+	}
+	"other_teams":[
+		{
+			"assignment_id": "KEA_00001",
+			"course_id":  "KEA_001a" ,
+			"description": "Facebook 2",
+			"": "",
+			"lead_id": "dovil",
+			"members": ["mam","doma"],
+			"members_num": 4,
+			"project_name": "Social Network",
+			"requirements": Array["Java", "MongoDB"]
+		},
+		{},..
+	]
+    "assignment": {
+            "asignment_id": "KEA_00001" ,
+            "deadline": Thu Mar 12 2015 12:00:00 GMT+00:00 ,
+            "description": "Create a simple aplication and write unit tests for it." ,
+            "full_name": "Unit Testing" ,
+            "start_time": Sun Feb 22 2015 13:52:35 GMT+00:00
+        },
+    "course_name": "Development of Large Systems" ,
+    "course_id": "KEA_002a"
+    "course_name": "Testing"end_date: null
+    "group_id": "KEA_01_ABC" 
+    "group_name":"Sofware development BA"
+    "start_date": null 
+    "student_id": "lala"
+} -->  	
+
+<div style="width: 100%; text-align: left; padding: 10px;margin:5px">
+	<div style="width: 100%;">
+		<div style="font-size: 14px;">Course: <%= course_name %> </div>
+	</div>
+	<div style="width: 100%; ">
+		<h1><%= assignment.full_name %> assignment</h1>
+		<div>
+			<span> Start: <%= assignment.start_time %> </span>
+			<span> Deadline: <%= assignment.deadline %> </span>
+		</div>
+	</div>
+		
+</div>
+
+
+<div style="width: 100%; height: 100%; padding: 20px; text-align: left;">
+	<h1>Your Team:</h1>
+
+	<% if(typeof my_team !== 'undefined'){%>
+
+		<div class = 'list_item'>
+			<div style="right: 30px"> 
+				<h4> <%= my_team.project_name %></h4>
+			</div>
+			<div style="right: 30px"> <%= my_team.description %></div>
+			<div style="left: 30px"> Team lead: <%= my_team.lead_id %></div> 
+			<div style="left: 30px"> Members: 
+				<% for(var l = 0; l < my_team.members.length; l++){%>
+					<span> <%= my_team.members[l]%></span>
+				<%} %>
+			</div> 
+		</div>
+	<%}else{%>
+		<button onclick="display_team_view(<%= assignment_log_id %>)"> Create Team </button>	
+	<%}%>
+
+	<h1>Teams:</h1>
+	<% for(var i = 0; i < other_teams.length; i++){%>
+		<div  class = 'list_item' >
+			<div style="right: 30px"> 
+				<h4> <%= other_teams[i].project_name %></h4>
+			</div>
+			<div style="right: 30px"> <%= other_teams[i].description %></div>
+			<div style="left: 30px"> Team lead: <%= other_teams[i].lead_id %></div> 
+			<div style="left: 30px"> Members: 
+				<% for(var j = 0; j< other_teams[i].members.length; j++){%>
+					<span> <%= other_teams[i].members[j] %></span>
+				<%} %>
+			</div> 
+		</div>
+	<%}%>		
+</div>
+
+
+

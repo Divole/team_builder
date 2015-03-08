@@ -1,33 +1,29 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Socket.IO chat</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 13px Helvetica, Arial; }
-      form { background: #000; padding: 3px; bottom: 0; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0; }
-      #messages li { padding: 5px 10px; }
-      #messages li:nth-child(odd) { background: #eee; }
-      /*#user_form{top: 0; right: 0;width: 200px}*/
-     
-    </style>
-  </head>
-  <body>
-	<form action="" id='user_form'>
-		<input id="name" autocomplete="off"/><button>Connect</button>
-	</form>
-	<div id="connected"></div>
-	<ul id="messages"></ul>
-	<form action="" id='msg_form'>
-	  <input id="m" autocomplete="off" /><button>Send</button>
-	</form>
 
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-	<script src="scripts.js"></script>
+<html>
+	<head>
+		<title>Login</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
+		<link rel="stylesheet" href="stylesheet.css">
+	</head>
+
+	<body>
 	
-  </body>
+
+	<div id='main_div'>
+		<h1>user: lala ---- pass: l </h1>
+		<h1>user: doma ---- pass: d </h1>
+		<h1>user: nanami ---- pass:  n </h1>
+		<div id="login_div"class="darkBG">  
+			<form action="" id='user_form'>
+				<input id="user_name" autocomplete="off" placeholder="User name" />
+				<input id="pass" autocomplete="off" placeholder="Password" />
+				<button>Login</button>
+			</form>
+		</div> 
+	</div>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+		<script src="scripts.js"></script>
+		<script type="text/javascript" src="scripts/ejs_production.js"></script>
+	</body>
 </html>

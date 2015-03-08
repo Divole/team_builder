@@ -1,0 +1,56 @@
+<!--
+{
+    "courses": [
+        {
+            "course_id": "KEA_002a" ,
+            "course_name": "Testing" ,
+            "end_date": null ,
+            "start_date": null
+        } ,
+        {
+            "course_id": "KEA_001a" ,
+            "course_name": "Development of Large Systems" ,
+            "end_date": null ,
+            "start_date": null
+        }
+    ] ,
+    "full_name": "KEA Copengagen School of Design and Technology" ,
+    "group_id": "KEA_01_ABC" ,
+    "group_name": "Software Development BA" ,
+    "id": "lala" ,
+    "school_id": "KEA"
+
+}
+-->
+
+<div id="top_body_layer">
+    <div id="pop_up_container"></div>
+</div>
+<div id='body_div'>
+<div id='stud_view_header'>
+    <div>
+        <%= full_name %>
+    </div>
+    <div>
+        <%= id %>
+    </div>
+    <div id="right_head" class='head_element'>
+        <form action='' id='sign_out'>
+            <button>Sign out</button>
+        </form>
+    </div>
+</div>
+<div id='main_container'>
+    <% for(var i=0 ; i < courses.length; i++){ %>
+        <div class = 'list_item' onclick="get_course_assignments('<%= courses[i].course_id%>' , '<%=group_id%>')">
+            <div>
+                <%= courses[i].course_id %>
+            </div>
+            <div>
+                <%= courses[i].course_name%>
+            </div>
+        </div>
+        <% } %>
+</div>
+</div>
+

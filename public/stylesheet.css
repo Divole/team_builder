@@ -1,0 +1,120 @@
+* { 
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box; 
+}
+html{
+	height: 100%;
+}
+body { 
+	font: 13px Helvetica, Arial; 
+	height: 100%;
+	text-align: center;
+}
+#top_body_layer{
+	position: fixed;
+	z-index: 50;
+	width: 100%;
+	height:100%;
+	background: rgba(115, 115, 115, 0.7);
+	display: none;
+	text-align: center;
+}
+#body_div{
+	position: absolute;
+	z-index: 20;
+	width: 100%;
+	height:100%;
+}
+#main_div{
+	position: absolute;
+	z-index: 10;
+	width: 100%;
+	height:100%;
+}
+#user_form { 
+	background: #000; 
+	padding: 10px; 
+	bottom: 0; 
+	width: 100%; 
+	border-radius: 3px;
+
+}
+#user_form input { 
+	border: 1px solid black; 
+	padding: 10px; 
+	width: 100%; 
+	margin-right: .5%; 
+}
+#user_form button { 
+	width: 100%; 
+	background: rgb(130, 224, 255);
+	border: none;  
+	border-radius: 2px;
+	padding: 10px; 
+	margin-top: 5px
+}
+#login_div{
+	position: relative;
+	width: 250px;
+	top: 10%;
+	display:inline-block;#EBEBEB
+}
+.logo_img{
+	max-height: 70px;
+	max-width: 150px; 
+}
+#stud_view_header{
+	width: 100%;
+	height: 20%; 
+	min-height: 70px;
+	padding: 5px;
+	display: inline-block;
+	border: 1px solid red;
+}
+
+#left_head{
+	left: 30px;
+}
+#right_head{
+	right: 30px;
+}
+.head_element{
+	display: inline;
+}
+.course_container{
+	width: 98%;
+	height: 50px;
+	background:gray;
+	margin: 5px 1% 5px 1%;
+	padding:10px;
+	color: white;
+	text-align: left;
+	cursor: pointer;
+}
+.main_container{
+	text-align: center;
+	width: 100%;
+	height: 80%;
+}
+.list_item{
+	background: #808A8E;
+	text-align: left;
+	width: 100%;
+	margin: 5px;
+	padding: 10px; 
+	color: white;
+}
+#pop_up_container{
+	width: 330px;
+	height: 400px;
+	top: 15%;
+	display: inline-block;
+	background: white;
+	border:#B3B3B3;
+	position: relative;
+	padding: 10px
+}
+#pop_up_container input{
+	margin: 5px;
+}

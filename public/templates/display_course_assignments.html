@@ -1,0 +1,41 @@
+
+<!--{
+    "assignments": [
+        {
+            "asignment_id":  "KEA_00002" ,
+            "deadline": Mon Mar 09 2015 00:00:00 GMT+00:00 ,
+            "description":  "Create a simple aplication and write performance tests for it." ,
+            "full_name":  "Performance Testing" ,
+            "id": 3 ,
+            "start_time": Sun Mar 01 2015 11:24:05 GMT+00:00
+        }
+    ] ,
+    "course_id":  "KEA_001a" ,
+    "course_name":  "Development of Large Systems" ,
+    "end_date": null ,
+    "group_id":  "KEA_01_ABC" ,
+    "start_date": null
+}-->
+
+
+<div>
+	<div width= '100%'> <h1><%= course_name%></h1> </div>
+</div>
+<div width = '100%'>
+	<% if(assignments !==null){
+        for(var i = 0; i < assignments.length; i++){%>
+    		<div class = 'list_item' onclick="get_teams('<%= assignments[i].asignment_id %>')">
+    			<div style="right: 30px"><%= assignments[i].asignment_id %> 
+    				<h4> <%= assignments[i].full_name %></h4>
+    			</div>
+    			<div style="right: 30px"> <%= assignments[i].description %></div>
+    			<div style="left: 30px"> Start: <%= assignments[i].start_time %></div> 
+    			<div style="right: 30px"> End: <%= assignments[i].deadline %></div>
+    		</div>
+
+    	<%}
+    }else{%>
+        <h4>There are no assignments for this course.</h4>
+    <%}%>
+	
+</div>
