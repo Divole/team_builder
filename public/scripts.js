@@ -101,10 +101,12 @@ function get_course_assignments(course_id) {
 			break;
 		}
 	}
-    socket.emit('require course assignments', {
+	var payload =  {
         'course_id': course_id,
         'group_id': user_info.group_id
-    });
+    };
+    // console.log(payload);
+    socket.emit('require course assignments', payload);
 }
 
 
@@ -114,11 +116,13 @@ function get_teams(assignment_id){
 	var course_id = selected_course_info.course_id;
 	var group_id = user_info.group_id;
 	set_selected_assignment_data(assignment_id, selected_course_info.assignments);
-	socket.emit('require teams', {
+	var payload = {
         'assignment_id': assignment_id,
         'course_id': course_id,
         'group_id': group_id
-    });    
+    };
+    // console.log(payload);
+	socket.emit('require teams', payload);    
 }
 
 
@@ -139,6 +143,7 @@ function create_new_team(assignment_log_id){
 		'requirements':requirements,
 		'assignment_log_id':assignment_log_id
 	}
+	console.log(obj);
 	socket.emit('create team', obj);
 }
 
