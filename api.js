@@ -7,7 +7,7 @@ module.exports = {
         });
     },
     get_assignments: function(course, callback){
-        db.get_assignments(course.course_id, course.group_id, function(course_assignments){            
+        db.get_assignments(course.course_id, function(course_assignments){
             callback(course_assignments);
         });
     },
@@ -22,4 +22,4 @@ module.exports = {
         });
     }
 
-}
+};
