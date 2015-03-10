@@ -17,18 +17,18 @@ function getConn(callback){
 }
 
 function get_teams(assignment_id, course_id, group_id, callback){
-  // console.log('<!-- team data : assinment_id-'+ assignment_id+', course_id-'+course_id+', group_id-'+group_id+'-->')
+
   getConn(function(conn){
     var rethinkdb = require('rethinkdb');
 
     rethinkdb.db('team_builder').table('course_log')
-    .filter({course_id: 'KEA_002a'})
-    .filter({group_id: 'KEA_01_ABC'})
+    .filter({course_id: course_id})
+    .filter({group_id: group_id})
     .merge(function (course_log){
       return {
         assignment_teams:rethinkdb.db('team_builder').table('assignment_log')
         .getAll(course_log('id'), {index: 'course_log_id'})
-        .filter({asignment_id: 'KEA_00001'})
+        .filter({asignment_id: assignment_id})
         .pluck('id','asignment_id')
         .merge(function (assignment){
           return {
@@ -43,18 +43,14 @@ function get_teams(assignment_id, course_id, group_id, callback){
       cursor.toArray(function(err, results) {
         if (err) throw err;
 
-        console.log("\n\nTEAMS:\n\n\n");
-        console.log(JSON.stringify(results));
+        cursor.close();
+        conn.close();
 
         if(typeof results != "undefined") {
 
           var obj = results[0].assignment_teams[0];
           callback(obj);
-          // console.log('SUCCESS IN GETTING TEAMS');
-        };
-
-        cursor.close();
-        conn.close();
+        }
       });      
     });
   });
@@ -85,8 +81,8 @@ function get_assignments( course_id, group_id, callback){
       cursor.toArray(function(err, results) {
         if (err) throw err;
         cursor.close();
+        conn.close();
         callback(results[0]);
-        conn.close();        
       });
     });
   })
@@ -123,13 +119,9 @@ function get_student_info(user_name, pass, callback){
     .without('school_id')
     .run(conn, function(err1, cursor){
       cursor.toArray(function(err2, results) {
-
-          callback(results[0]);
-
         cursor.close();
         conn.close();
-        // console.log(results[0]);
-        
+        callback(results[0]);
       });
     });
   })
@@ -139,7 +131,6 @@ function get_student_info(user_name, pass, callback){
 
 
 function create_team(team, callback){
-  console.log('NEW TEAM----->', team);
 
   getConn(function(conn){
 
@@ -156,7 +147,7 @@ function create_team(team, callback){
         members: team.members
 
       }).run(conn, function(err){
-        console.log('team insert done');
+        conn.close();
         if (err) {
           callback(err);
         }else{
@@ -164,7 +155,6 @@ function create_team(team, callback){
         }
         
       });
-    // callback('completed');
   });
 }
 

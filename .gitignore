@@ -2,3 +2,4 @@ node_modules/*
 rethinkdb_data/*
 newrelic.js
 newrelic_agent.log
+.idea/*

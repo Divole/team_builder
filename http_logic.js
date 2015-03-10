@@ -3,7 +3,7 @@ module.exports = {
     assignments: assignments,
     teams:teams,
     create_team: create_team
-}
+};
 
 var API = require('./api');
 
